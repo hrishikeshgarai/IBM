@@ -77,10 +77,7 @@ function sortData(key, order) {
 function pageData(size, page_no) {
 	var start = ((page_no - 1)*size) + 1;
 	var end = start + size - 1;
-	var i = 0;
-	while (i != start) {
-		i++;
-	}
+	var i = start;
 	while (i <= end) {
 		if (myContents[i] != null) {
 			pagedResult.push(myContents[i]);
