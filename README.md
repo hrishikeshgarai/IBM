@@ -16,6 +16,7 @@ How to run:
 The APIs are tested using Postman in order to pass the data-parameters in the body as POST Request.
   
 Sample POST Request for filtering, sorting and pagination:
+
 {
 	"filter" : [{"field": "age", "operator": "EQUAL", "value": 71}],
 	"sort" : [{"first_name":"desc"}],
