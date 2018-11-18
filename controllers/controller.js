@@ -38,7 +38,7 @@ exports.app_result = function app_result(req, res) {
 exports.app_newData = function app_newData(req, res) {
 	var data = req.body;
 	myContents.push(data);
-	fs.writeFile('./sample.json', JSON.stringify(myContents), (err) => {
+	fs.writeFile('./sample.json', JSON.stringify(myContents, null, 6), (err) => {
     if (err) {
         console.error(err);
         return;
