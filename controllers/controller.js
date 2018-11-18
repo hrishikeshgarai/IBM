@@ -4,11 +4,14 @@ var myContents = JSON.parse(contents);
 var result = [];
 var pagedResult = [];
 
+//fetch all data
 exports.app_fetch = function app_fetch(req, res) {
 	res.send(contents);
 };
 
+// filter, sort and paginate the data
 exports.app_result = function app_result(req, res) {
+	// filter
 	var obj = req.body.filter;
 	for (var i = 0; i < obj.length; i++) {
 		var f = obj[i].field;
@@ -16,18 +19,32 @@ exports.app_result = function app_result(req, res) {
 		var v = obj[i].value;
 		filterData(f, o, v);
 	}
+	// sort
 	var sortObj = req.body.sort;
 	for (i in sortObj[0]) {
-		// console.log(i, sortObj[0][i]);
 		var key = i;
 		var order = sortObj[0][i];
 		sortData(key, order);
 	}
+	//pagination
 	var page = req.body.pagination;
 	var size = page[0].size;
 	var page_no = page[0].page_no;
 	pageData(size, page_no);
 	res.send(pagedResult);
+}
+
+// save a new record to the JSON file
+exports.app_newData = function app_newData(req, res) {
+	var data = req.body;
+	myContents.push(data);
+	fs.writeFile('./sample.json', JSON.stringify(myContents), (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    };
+    console.log("File has been created");
+    });
 }
 
 function filterData(f, o, v) {
@@ -53,7 +70,6 @@ function filterData(f, o, v) {
 }
 
 function sortData(key, order) {
-	console.log(key, order);
 	myContents.sort(function(a, b) {
 		if (order.localeCompare("asc")) {
 			if (a[key] > b[key]) {
@@ -75,12 +91,9 @@ function sortData(key, order) {
 }
 
 function pageData(size, page_no) {
-	var start = ((page_no - 1)*size) + 1;
+	var start = ((page_no - 1)*size);
 	var end = start + size - 1;
-	var i = 0;
-	while (i != start) {
-		i++;
-	}
+	var i = start;
 	while (i <= end) {
 		if (myContents[i] != null) {
 			pagedResult.push(myContents[i]);
