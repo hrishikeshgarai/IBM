@@ -91,6 +91,8 @@ function sortData(key, order) {
 }
 
 function pageData(size, page_no) {
+	var pages = Math.ceil(myContents.length / size);
+	pagedResult.push({"Pages" : pages, "Page No" : page_no});
 	var start = ((page_no - 1)*size);
 	var end = start + size - 1;
 	var i = start;
