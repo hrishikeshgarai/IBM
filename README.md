@@ -17,3 +17,5 @@ Sample POST Request:
 	"sort" : [{"first_name":"desc"}],
 	"pagination" : [{"size" : 10, "page_no" : 1}]
 }
+
+Note: Page Number starts with 1.
