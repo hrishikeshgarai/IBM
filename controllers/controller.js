@@ -75,7 +75,7 @@ function sortData(key, order) {
 }
 
 function pageData(size, page_no) {
-	var start = ((page_no - 1)*size) + 1;
+	var start = ((page_no - 1)*size);
 	var end = start + size - 1;
 	var i = start;
 	while (i <= end) {
