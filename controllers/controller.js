@@ -50,7 +50,7 @@ exports.app_newData = function app_newData(req, res) {
         console.error(err);
         return;
     };
-    console.log("File has been created");
+    res.send("New record created");
     });
 }
 
