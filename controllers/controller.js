@@ -13,25 +13,32 @@ exports.app_fetch = function app_fetch(req, res) {
 exports.app_result = function app_result(req, res) {
 	// filter
 	var obj = req.body.filter;
-	for (var i = 0; i < obj.length; i++) {
-		var f = obj[i].field;
-		var o = obj[i].operator;
-		var v = obj[i].value;
-		filterData(f, o, v);
+	if (obj != null) {
+		for (var i = 0; i < obj.length; i++) {
+			var f = obj[i].field;
+			var o = obj[i].operator;
+			var v = obj[i].value;
+			filterData(f, o, v);
+		}
 	}
 	// sort
 	var sortObj = req.body.sort;
-	for (i in sortObj[0]) {
-		var key = i;
-		var order = sortObj[0][i];
-		sortData(key, order);
+	if (sortObj != null) {
+		for (i in sortObj[0]) {
+			var key = i;
+			var order = sortObj[0][i];
+			sortData(key, order);
+		}
 	}
 	//pagination
 	var page = req.body.pagination;
-	var size = page[0].size;
-	var page_no = page[0].page_no;
-	pageData(size, page_no);
-	res.send(pagedResult);
+	if (page != null) {
+		var size = page[0].size;
+		var page_no = page[0].page_no;
+		pageData(size, page_no);
+		myContents = pagedResult;
+	}
+	res.send(myContents);
 }
 
 // save a new record to the JSON file
