@@ -16,6 +16,7 @@ How to run:
 The APIs are tested using Postman in order to pass the data-parameters in the body as POST Request.
   
 Sample POST Request for filtering, sorting and pagination:
+
 {
 	"filter" : [{"field": "age", "operator": "EQUAL", "value": 71}],
 	"sort" : [{"first_name":"desc"}],
@@ -31,6 +32,7 @@ Note: Page Number starts with 1.
 # Overview
 This Node.js application consists of three APIs:
  1. /fetchAll - This API fetches the raw dataset and downloads it locally for viewing. It uses to HTTP GET Request.
+ 
  2. /resultData - This API performs three different functionalities as below:
   a. Filter - Filtering can be performed on any column of types String and Number, and supports the below operators:
      String - EQUAL, CONTAINS, STARTSWITH
@@ -39,5 +41,6 @@ This Node.js application consists of three APIs:
      sorts according to the last condition as can be tested using the above POST Request.
   c. Pagination - It takes the page number, the number of entries per page and returns the records within that page of the 
      filtered and sorted dataset. It also returns the total number of pages.
+     Note : To view all filtered and sorted records without pagination, please increase the page size to include all records.
+     
  3. /newData - Appends a new record to the sample dataset.
-	    
