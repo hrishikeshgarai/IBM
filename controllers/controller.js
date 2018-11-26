@@ -69,7 +69,7 @@ function filterData(f, o, v) {
 		else if (o == "STARTSWITH" && obj[f].startsWith(v)) {
 			result.push(obj);
 		}
-		else if (o == "CONTAINS" && obj[f].contains(v)) {
+		else if (o == "CONTAINS" && obj[f].includes(v)) {
 			result.push(obj);
 		}
 	}
