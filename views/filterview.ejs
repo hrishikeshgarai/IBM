@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<title>Filter Records</title>
+		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
+	</head>
+	<body>
+		<form enctype="application/json" method="POST" action="/ibmex/resultData">
+
+			<h3>Filter</h3>
+
+			<input type="checkbox" name="filter" value=filter> Filter
+			<select name="field">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="operator">
+				<option disabled selected value> Select an operator </option>
+				<option value = "STARTSWITH"> Starts with </option>
+				<option value = "EQUAL"> Equal </option>
+				<option value = "CONTAINS"> Contains </option>
+				<option value = "GREATERTHAN"> Greater than </option>
+				<option value = "LESSTHAN"> Less than </option>
+			</select>
+			Value: <input type="text" name = "value"> 
+
+			<br />
+			<br />
+
+			<input type="checkbox" name="filter" value=filter> Filter
+			<select name="field">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="operator">
+				<option disabled selected value> Select an operator </option>
+				<option value = "STARTSWITH"> Starts with </option>
+				<option value = "EQUAL"> Equal </option>
+				<option value = "CONTAINS"> Contains </option>
+				<option value = "GREATERTHAN"> Greater than </option>
+				<option value = "LESSTHAN"> Less than </option>
+			</select>
+			Value: <input type="text" name = "value">
+
+			<br />
+			<br />
+
+			<input type="checkbox" name="filter" value=filter> Filter
+			<select name="field">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="operator">
+				<option disabled selected value> Select an operator </option>
+				<option value = "STARTSWITH"> Starts with </option>
+				<option value = "EQUAL"> Equal </option>
+				<option value = "CONTAINS"> Contains </option>
+				<option value = "GREATERTHAN"> Greater than </option>
+				<option value = "LESSTHAN"> Less than </option>
+			</select>
+			Value: <input type="text" name = "value">
+
+			<br />
+			<br />
+
+			<h3>Sort</h3>
+
+			<input type="checkbox" name="sort" value=sort> Sort
+			<select name="key">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="order">
+				<option disabled selected value> Select an order </option>
+				<option value = "asc"> Ascending </option>
+				<option value = "desc"> Descending </option>
+			</select>
+
+			<br />
+			<br />
+
+			<input type="checkbox" name="sort" value=sort> Sort
+			<select name="key">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="order">
+				<option disabled selected value> Select an order </option>
+				<option value = "asc"> Ascending </option>
+				<option value = "desc"> Descending </option>
+			</select>
+
+			<br />
+			<br />
+
+			<input type="checkbox" name="sort" value=sort> Sort
+			<select name="key">
+				<option disabled selected value> Select a field </option>
+				<option value = "first_name"> First Name </option>
+				<option value = "last_name"> Last Name </option>
+				<option value = "email"> Email </option>
+				<option value = "gender"> Gender </option>
+				<option value = "age"> Age </option>
+				<option value = "id"> ID </option>
+			</select>
+			<select name="order">
+				<option disabled selected value> Select an order </option>
+				<option value = "asc"> Ascending </option>
+				<option value = "desc"> Descending </option>
+			</select>
+
+			<br />	
+			<br />
+
+			<h3>Paginate</h3>
+			<br />
+			Size: <input type="text" name="size">
+			Page: <input type="text" name="page_no">
+
+			<br />
+			<br />
+
+			<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
