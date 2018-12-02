@@ -3,6 +3,9 @@ var router = express.Router();
 
 var app_controller = require('../controllers/controller');
 
+// Route to main page
+router.get('/', app_controller.app_home);
+
 // Route to fetch all data
 router.get('/fetchAll', app_controller.app_fetch);
 

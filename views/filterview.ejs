@@ -1,15 +1,51 @@
 <html>
 	<head>
-		<title>Filter Records</title>
-		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
+		<title>IBM-Filter Records</title>
+		<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			form {
+				padding-left: 25%;
+				padding-right: 25%; 
+			}
+			ul {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+			li {
+			    float: center;
+			}
+			li a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+			li a:hover:not(.active) {
+			    background-color: #111;
+			}
+		</style>
 	</head>
 	<body>
+		<ul>
+			<li><a href="/ibmex/"><img src="/assets/ibm.jpg" height="25px"></a></li>
+		</ul>
 		<form enctype="application/json" method="POST" action="/ibmex/resultData">
+			
+			<div class="form-group">
 
-			<h3>Filter</h3>
+			<h4>FILTER & SORT</h4>
 
-			<input type="checkbox" name="filter" value=filter> Filter
-			<select name="field">
+			<input type="checkbox" id="filter1" name="filter" value=filter>
+			<label>Filter</label>
+			<select id="field1" name="field" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -18,7 +54,7 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="operator">
+			<select id="operator1" name="operator" style="width:305px" disabled="true">
 				<option disabled selected value> Select an operator </option>
 				<option value = "STARTSWITH"> Starts with </option>
 				<option value = "EQUAL"> Equal </option>
@@ -26,13 +62,12 @@
 				<option value = "GREATERTHAN"> Greater than </option>
 				<option value = "LESSTHAN"> Less than </option>
 			</select>
-			Value: <input type="text" name = "value"> 
-
-			<br />
+			<input id="value1" type="text" name = "value" placeholder="Enter a value" class="form-control" disabled="true"> 
 			<br />
 
-			<input type="checkbox" name="filter" value=filter> Filter
-			<select name="field">
+			<input type="checkbox" id="filter2" name="filter" value=filter>
+			<label>Filter</label>
+			<select id="field2" name="field" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -41,7 +76,7 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="operator">
+			<select id="operator2" name="operator" style="width:305px" disabled="true">
 				<option disabled selected value> Select an operator </option>
 				<option value = "STARTSWITH"> Starts with </option>
 				<option value = "EQUAL"> Equal </option>
@@ -49,13 +84,13 @@
 				<option value = "GREATERTHAN"> Greater than </option>
 				<option value = "LESSTHAN"> Less than </option>
 			</select>
-			Value: <input type="text" name = "value">
+			<input type="text" id="value2" name = "value" placeholder="Enter a value" class="form-control" disabled="true">
 
 			<br />
-			<br />
 
-			<input type="checkbox" name="filter" value=filter> Filter
-			<select name="field">
+			<input type="checkbox" id="filter3" name="filter" value=filter>
+			<label>Filter</label>
+			<select id="field3" name="field" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -64,7 +99,7 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="operator">
+			<select id="operator3" name="operator" style="width:305px" disabled="true">
 				<option disabled selected value> Select an operator </option>
 				<option value = "STARTSWITH"> Starts with </option>
 				<option value = "EQUAL"> Equal </option>
@@ -72,15 +107,13 @@
 				<option value = "GREATERTHAN"> Greater than </option>
 				<option value = "LESSTHAN"> Less than </option>
 			</select>
-			Value: <input type="text" name = "value">
+			<input type="text" id="value3" name = "value" placeholder="Enter a value" class="form-control" disabled="true">
 
 			<br />
-			<br />
 
-			<h3>Sort</h3>
-
-			<input type="checkbox" name="sort" value=sort> Sort
-			<select name="key">
+			<input type="checkbox" id="sort1" name="sort" value=sort>
+			<label>Sort</label>
+			<select id="key1" name="key" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -89,17 +122,17 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="order">
+			<select id="order1" name="order" style="width:305px" disabled="true">
 				<option disabled selected value> Select an order </option>
 				<option value = "asc"> Ascending </option>
 				<option value = "desc"> Descending </option>
 			</select>
 
 			<br />
-			<br />
 
-			<input type="checkbox" name="sort" value=sort> Sort
-			<select name="key">
+			<input type="checkbox" id="sort2" name="sort" value=sort>
+			<label>Sort</label>
+			<select id="key2" name="key" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -108,17 +141,17 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="order">
+			<select id="order2" name="order" style="width:305px" disabled="true">
 				<option disabled selected value> Select an order </option>
 				<option value = "asc"> Ascending </option>
 				<option value = "desc"> Descending </option>
 			</select>
 
 			<br />
-			<br />
 
-			<input type="checkbox" name="sort" value=sort> Sort
-			<select name="key">
+			<input type="checkbox" id="sort3" name="sort" value=sort>
+			<label>Sort</label>
+			<select id="key3" name="key" style="width:305px" disabled="true">
 				<option disabled selected value> Select a field </option>
 				<option value = "first_name"> First Name </option>
 				<option value = "last_name"> Last Name </option>
@@ -127,24 +160,54 @@
 				<option value = "age"> Age </option>
 				<option value = "id"> ID </option>
 			</select>
-			<select name="order">
+			<select id="order3" name="order" style="width:305px" disabled="true">
 				<option disabled selected value> Select an order </option>
 				<option value = "asc"> Ascending </option>
 				<option value = "desc"> Descending </option>
 			</select>
 
+			<br />
 			<br />	
-			<br />
 
-			<h3>Paginate</h3>
-			<br />
-			Size: <input type="text" name="size">
-			Page: <input type="text" name="page_no">
+			<h4>PAGINATE</h4>
+			<input type="text" name="size" class="form-control" placeholder="Page Size">
+			<input type="text" name="page_no" class="form-control" placeholder="Page Number">
 
 			<br />
-			<br />
 
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" class="btn btn-success btn-block">
+		</div>
 		</form>
 	</body>
+
+<script type="text/javascript">
+	$('#filter1').click(function() {
+	    $('#field1').attr('disabled',!(this.checked))
+	    $('#operator1').attr('disabled',!(this.checked))
+	    $('#value1').attr('disabled',!(this.checked))
+	});
+	$('#filter2').click(function() {
+	    $('#field2').attr('disabled',!(this.checked))
+	    $('#operator2').attr('disabled',!(this.checked))
+	    $('#value2').attr('disabled',!(this.checked))
+	});
+	$('#filter3').click(function() {
+	    $('#field3').attr('disabled',!(this.checked))
+	    $('#operator3').attr('disabled',!(this.checked))
+	    $('#value3').attr('disabled',!(this.checked))
+	});
+	$('#sort1').click(function() {
+	    $('#key1').attr('disabled',!(this.checked))
+	    $('#order1').attr('disabled',!(this.checked))
+	});
+	$('#sort2').click(function() {
+	    $('#key2').attr('disabled',!(this.checked))
+	    $('#order2').attr('disabled',!(this.checked))
+	});
+	$('#sort3').click(function() {
+	    $('#key3').attr('disabled',!(this.checked))
+	    $('#order3').attr('disabled',!(this.checked))
+	});
+</script>
+
 </html>

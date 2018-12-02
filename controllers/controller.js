@@ -5,7 +5,12 @@ var myContents = contents;
 var result = [];
 var pagedResult = [];
 
-//fetch all data
+// main page
+exports.app_home = function app_home(req, res) {
+	res.render('home');
+};
+
+// fetch all data
 exports.app_fetch = function app_fetch(req, res) {
 	res.render('view', {content : JSON.stringify(contents)});
 };
@@ -18,9 +23,7 @@ exports.app_post = function app_post(req, res) {
 exports.app_result = function app_result(req, res) {
 	myContents = contents;
 	var obj = req.body;
-	// var obj1 = JSON.stringify(myObj);
-	// var obj = JSON.parse(obj1);
-
+	
 	// filter
 	if (obj.filter != null) {
 		if (obj.filter == "filter") {

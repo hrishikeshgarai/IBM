@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>IBM-Homepage</title>
+		<meta charset="utf-8">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+		  .bg-1 {
+		       background-color: #000000;
+		       color: #ffffff;
+		       padding-top: 100px;
+		       padding-bottom: 100px;
+		    }
+		    .bg-2 {
+		       background-color: #008080;
+		       color: #ffffff;
+		       padding-top: 150px;
+		       padding-bottom: 150px;
+		    }
+		    form{
+		    	display: inline;
+		    }
+		</style>
+	</head>
+	
+	<body>
+	    <div class="container-fluid bg-1 text-center">
+		    <img src="/assets/ibm.jpg" alt="IBM" height="100px">
+		</div>
+		<div class="container-fluid bg-2 text-center">
+			<form action="/ibmex/fetchAll">
+			    <input type="submit" value="Fetch All Records" class="btn btn-primary btn-lg">
+			</form>
+			<form action="/ibmex/resultData">
+			    <input type="submit" value="Filter Records" class="btn btn-primary btn-lg">
+			</form>
+			<form action="/ibmex/newData">
+			    <input type="submit" value="Add New Record" class="btn btn-primary btn-lg">
+			</form>
+		</div>
+	</body>
+</html>

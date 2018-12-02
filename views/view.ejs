@@ -1,9 +1,97 @@
 <html>
 	<head>
 		<title>Records</title>
-		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>	
+		<script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+		<style type="text/css">
+			ul {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+			li {
+			    float: center;
+			}
+			li a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+			li a:hover:not(.active) {
+			    background-color: #111;
+			}
+			th, td, p, input {
+            font:14px Verdana;
+            padding-left: 25%;
+	        }
+	        table, th, td 
+	        {
+	            border: solid 1px #DDD;
+	            border-collapse: collapse;
+	            padding: 2px 3px;
+	            text-align: center;
+	        }
+	        th {
+	            font-weight:bold;
+	        }
+		</style>	
 	</head>
-	<body>
-		<%= content %>
+	<body onload="CreateTableFromJSON(<%= content %>)">
+		<ul>
+			<li><a href="/ibmex/"><img src="/assets/ibm.jpg" height="25px"></a></li>
+		</ul>
+		<p id="pageData"></p>
+		<p id="showData"></p>
 	</body>
+	<script>
+    function CreateTableFromJSON(data) {
+        var myData = data;
+        console.log(myData[0]["Page No"]);
+        var col = [];
+        for (var i = 0; i < myData.length; i++) {
+            for (var key in myData[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+
+        var tr = table.insertRow(-1);
+
+        var start = 0;
+        if (col.length == 8) {
+        	var para = document.createElement("P");
+        	var t1 = document.createTextNode("Total Pages:" + myData[0]["Pages"] + '  ' + "Page Number:" + myData[0]["Page No"]);
+        	var pagination = document.getElementById("pageData");
+        	pagination.innerHTML = "";
+        	pagination.appendChild(t1);
+        	var start = 2;
+        }
+
+        for (var i = start; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = start; i < myData.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = start; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myData[i][col[j]];
+            }
+        }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+</script>
 </html>
