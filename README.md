@@ -6,7 +6,8 @@ How to run:
  2. cd to the repository folder
  3. npm init
  4. npm install
- 5. node app.js
+ 5. npm install --save ejs
+ 6. node app.js
  
  API Functionality :
   1. localhost:3000/ibmex/fetchAll - Fetch/Download the entire dataset
