@@ -49,7 +49,7 @@
 	<script>
     function CreateTableFromJSON(data) {
         var myData = data;
-        console.log(myData[0]["Page No"]);
+        console.log(myData);
         var col = [];
         for (var i = 0; i < myData.length; i++) {
             for (var key in myData[i]) {
@@ -79,7 +79,7 @@
             tr.appendChild(th);
         }
 
-        for (var i = start; i < myData.length; i++) {
+        for (var i = 1; i < myData.length; i++) {
 
             tr = table.insertRow(-1);
 

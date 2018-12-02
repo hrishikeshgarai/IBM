@@ -23,13 +23,14 @@ exports.app_post = function app_post(req, res) {
 exports.app_result = function app_result(req, res) {
 	myContents = contents;
 	var obj = req.body;
+	console.log(obj);
 	
 	// filter
 	if (obj.filter != null) {
 		if (obj.filter == "filter") {
 			var f = obj.field;
 			var o = obj.operator;
-			var v = obj.value[0];
+			var v = obj.value;
 			filterData(f,o,v);
 		}
 		else {
@@ -64,6 +65,7 @@ exports.app_result = function app_result(req, res) {
 		pageData(size, page_no);
 		myContents = pagedResult;
 	}
+	console.log(myContents);
 	res.render('view', {content : JSON.stringify(myContents)});
 }
 
@@ -89,6 +91,7 @@ exports.app_newData = function app_newData(req, res) {
 // filter function
 function filterData(f, o, v) {
 	result = [];
+	console.log(f,o,v);
 	for (var i = 0; i < myContents.length; i++) {
 		var obj = myContents[i];
 		if (o == "EQUAL" && obj[f] == v) {
@@ -138,7 +141,7 @@ function pageData(size, page_no) {
 	var pages = Math.ceil(myContents.length / size);
 	pagedResult.push({"Pages" : pages, "Page No" : page_no});
 	var start = ((page_no - 1)*size);
-	var end = start + parseInt(size);
+	var end = start + parseInt(size) - 1;
 	var i = start;
 	while (i <= end) {
 		if (myContents[i] != null) {
