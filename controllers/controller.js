@@ -82,7 +82,7 @@ exports.app_newData = function app_newData(req, res) {
         console.error(err);
         return;
     };
-    res.send("New record created");
+    res.render("home");
     });
 }
 
