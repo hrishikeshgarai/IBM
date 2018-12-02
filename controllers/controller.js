@@ -23,7 +23,6 @@ exports.app_post = function app_post(req, res) {
 exports.app_result = function app_result(req, res) {
 	myContents = contents;
 	var obj = req.body;
-	console.log(obj);
 	
 	// filter
 	if (obj.filter != null) {
@@ -65,7 +64,6 @@ exports.app_result = function app_result(req, res) {
 		pageData(size, page_no);
 		myContents = pagedResult;
 	}
-	console.log(myContents);
 	res.render('view', {content : JSON.stringify(myContents)});
 }
 
@@ -91,7 +89,6 @@ exports.app_newData = function app_newData(req, res) {
 // filter function
 function filterData(f, o, v) {
 	result = [];
-	console.log(f,o,v);
 	for (var i = 0; i < myContents.length; i++) {
 		var obj = myContents[i];
 		if (o == "EQUAL" && obj[f] == v) {
