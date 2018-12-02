@@ -138,7 +138,7 @@ function pageData(size, page_no) {
 	var pages = Math.ceil(myContents.length / size);
 	pagedResult.push({"Pages" : pages, "Page No" : page_no});
 	var start = ((page_no - 1)*size);
-	var end = start + parseInt(size) - 1;
+	var end = start + parseInt(size);
 	var i = start;
 	while (i <= end) {
 		if (myContents[i] != null) {
